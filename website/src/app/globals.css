@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  --background: hsl(0, 0, 90);
+  --surface: hsl(0, 0, 95);
+  --surface-hover: hsl(0, 0, 100);
+  --text: hsl(0, 0, 5);
+  --text-muted: hsl(0, 0, 20);
+  --primary: #606c38ff;
+  --primary-hover: rgb(68, 83, 50);
+  --secondary: #dda15eff;
+  --secondary-hover: #bc6c25ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-border: var(--border);
+  --color-gradient: var(--gradient);
+  --color-gradient-hover: var(--gradient-hover);
+
+
+  --font-poppins: var(--font-poppins);
+  --font-playfair: var(--font-playfair);
+}
+
+html[theme='dark'] {
+  --background: hsl(0, 0, 0);
+  --surface: hsl(0, 0, 5);
+  --surface-hover: hsl(0, 0, 10);
+  --text: hsl(0, 0, 95);
+  --text-muted: hsl(0, 0, 60);
+  --border:hsl(0,0,30);
+  --gradient : linear-gradient(0deg, var(--background) 95% ,var(--surface-hover)) ;
+  --gradient-hover : linear-gradient(0deg, var(--background),var(--surface-hover)) ;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
