@@ -6,6 +6,7 @@ import LocaleSwitcher from "../../components/LocaleSwitcher";
 import { createClient } from "../../supabase/client";
 import { useState, useEffect } from "react";
 import { Text, Title } from "@/components/typography";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 const Page = () => {
   const locale = useLocale();
   const t = useTranslations("HomePage");
@@ -37,6 +38,9 @@ const Page = () => {
 
   return (
     <>
+      <div className="bg-blue-100 h-screen w-full flex flex-col justify-center items-center gap-3">
+        <div className='w-96 h-96 bg-white shadow rounded-2xl animate-pulse' />
+      </div>
       <div className="bg-green-100 h-screen w-full flex flex-col justify-center items-center gap-3">
         <Title size="big" className="w-2/3">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,

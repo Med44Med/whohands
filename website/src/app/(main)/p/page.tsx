@@ -14,13 +14,11 @@ const Page = async ({
 
   const { data, error } = await supabase
     .from("products")
-    .select("id,title,descreption,owner(id,username,avatar_url)");
+    .select("id,title,descreption,sub_category,owner(id,username,avatar_url)");
 
   if (error) {
     console.log(error);
   }
-
-  console.log(params);
 
   return (
     <main className="w-screen pt-20 pb-5 px-5 flex justify-start items-start gap-10  bg-background md:h-screen md:px-10">

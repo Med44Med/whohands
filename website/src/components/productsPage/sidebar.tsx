@@ -20,7 +20,7 @@ const Sidebar = () => {
   );
 
   return (
-    <div className="w-1/6 h-full rounded-xl p-3 bg-primary shadow">
+    <div className="w-1/6 h-full rounded-xl p-3 bg-surface shadow">
       <ul>
         <li>
           <button onClick={() => handleQueryString("sort", "asc")}>ASC</button>
