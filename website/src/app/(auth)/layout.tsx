@@ -5,7 +5,6 @@ const AuthLayout = ({children}: Readonly<{ children: React.ReactNode }>) => {
     <>
     <header></header>
     {children}
-    <footer>2025</footer>
     </>
   )
 }
