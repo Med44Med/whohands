@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 
-const Text = ({ size, children, className, muted }) => {
+const Text = ({ size, children, className, muted=false }) => {
   const handleSize = (size) => {
     switch (size) {
       case "small":
@@ -19,7 +19,7 @@ const Text = ({ size, children, className, muted }) => {
   return (
     <p
       className={clsx(
-        "text-text font-normal tracking-normal leading-normal",
+        "font-normal tracking-normal leading-normal",
         handleSize(size),
         muted ? "text-text-muted" : "text-text",
         className

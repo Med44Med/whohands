@@ -65,9 +65,9 @@ const Header = ({ user }) => {
           </picture>
         </div>
 
-        <h2 className="text-text text-3xl md:text-5xl font-black font-playfair tracking-tighter select-none">
+        <h2 className="text-text text-3xl md:text-5xl font-black tracking-tighter select-none">
           Who
-          <span className="text-primary text-2xl md:text-4xl font-black   tracking-tighter">
+          <span className="text-primary">
             Hands.
           </span>
         </h2>

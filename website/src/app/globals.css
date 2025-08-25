@@ -51,9 +51,9 @@ html[theme='dark'] {
   font-family: var(--font-outfit);
 }
 
-/* [lang='ar'] * {
+[lang='ar'] * {
   font-family: var(--font-cairo);
-} */
+}
 
 body {
   background: var(--background);

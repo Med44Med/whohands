@@ -1,6 +1,6 @@
-
 import { login, signup, signInWithGoogle } from "./actions";
 import { FaGoogle } from "react-icons/fa";
+import SignInEmailForm from './_components/SignInEmailForm';
 
 export const metadata: Metadata = {
   title: "WhoHands | Login",
@@ -9,49 +9,11 @@ export const metadata: Metadata = {
 
 export default async function LoginPage({ searchParams }) {
   const { redirectTo } = await searchParams;
-
+  console.log(redirectTo);
+  
   return (
-    <main className="w-full px-10 flex justify-start items-center py-5 pt-20 flex-col ">
-      <form className="mt-3 bg-surface shadow rounded p-3 w-2/3 flex flex-col justify-center items-center gap-3">
-        <input
-          type="text"
-          name="redirect"
-          defaultValue={redirectTo}
-          className="hidden"
-        />
-        <label className="w-full " htmlFor="email">
-          Email:
-        </label>
-        <input
-          className="w-full rounded outline-none border border-text-secondary p-1 px-3 "
-          id="email"
-          name="email"
-          type="email"
-          required
-        />
-        <label className="w-full " htmlFor="password">
-          Password:
-        </label>
-        <input
-          className="w-full rounded outline-none border border-text-secondary p-1 px-3 "
-          id="password"
-          name="password"
-          type="password"
-          required
-        />
-        <button
-          className="w-full bg-primary p-2 text-xl text-surface font-semibold rounded cursor-pointer hover:bg-primary-hover"
-          formAction={login}
-        >
-          Log in
-        </button>
-        <button
-          className="w-full bg-primary p-2 text-xl text-surface font-semibold rounded cursor-pointer hover:bg-primary-hover"
-          formAction={signup}
-        >
-          Sign up
-        </button>
-      </form>
+    <main className="w-full px-10 flex justify-start items-center gap-5 py-5 pt-20 flex-col ">
+      <SignInEmailForm redirectTo={redirectTo}/>  
       <form>
         <button
           formAction={signInWithGoogle}

@@ -1,9 +1,10 @@
 import React from "react";
 import clsx from "clsx";
 
-const Button = ({ title, onClick, className, icon }) => {
+const Button = ({ title, onClick, className, icon, type = "button" }) => {
   return (
     <button
+      type={type}
       onClick={onClick}
       className={clsx(
         "w-fit shadow rounded px-5 py-2 bg-primary cursor-pointer duration-300 hover:bg-primary-hover flex justify-center items-center gap-1 last:text-white last:text-2xl",

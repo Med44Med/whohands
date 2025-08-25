@@ -1,18 +1,31 @@
+"use state";
 import React from "react";
 import { Text } from "@/components/typography";
-import clsx from 'clsx';
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const InputField = ({ label,value,onChange,className, error }) => {
+const InputField = ({
+  label,
+  type,
+  value,
+  onChange,
+  className,
+  error,
+  required = false,
+}) => {
+  const [inputType, setInputType] = useState(type);
   return (
     <div className={className}>
-      <div className="relative w-full border rounded-xl">
+      <div className="relative w-full border rounded">
         <input
-          type="text"
+          type={inputType}
           id={label}
-          className="block rounded-xl px-2.5 pb-2.5 pt-5 w-full text-sm text-text bg-surface outline-0 appearance-none   peer"
+          name={label}
+          className="block rounded px-2.5 pb-2.5 pt-5 w-full text-sm text-text bg-surface outline-0 appearance-none   peer"
           placeholder=" "
           value={value}
-          onChange={e=>onChange(e)}
+          onChange={(e) => onChange(e)}
+          required={required}
         />
         <label
           htmlFor={label}
@@ -20,8 +33,21 @@ const InputField = ({ label,value,onChange,className, error }) => {
         >
           {label}
         </label>
+        {type === "password" && (
+          <div className="absolute right-4 top-4 cursor-pointer select-none">
+            {inputType === "password" ? (
+              <FaEye onClick={() => setInputType("text")} />
+            ) : (
+              <FaEyeSlash onClick={() => setInputType("password")} />
+            )}
+          </div>
+        )}
       </div>
-      {error && <Text size='small' className='!text-red-600 m-2'>{error}</Text>}
+      {error && (
+        <Text size="small" className="!text-red-600 m-2">
+          {error}
+        </Text>
+      )}
     </div>
   );
 };
