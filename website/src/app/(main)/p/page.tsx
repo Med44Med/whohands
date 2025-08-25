@@ -14,16 +14,18 @@ const Page = async ({
 
   const { data, error } = await supabase
     .from("products")
-    .select("id,title,descreption,sub_category,owner(id,username,avatar_url)");
+    .select(
+      "id,title,descreption,sub_category,photos,owner(id,username,avatar_url),ratings_avg,ratings_count"
+    );
 
   if (error) {
     console.log(error);
   }
 
   return (
-    <main className="w-screen pt-20 pb-5 px-5 flex justify-start items-start gap-10  bg-background md:h-screen md:px-10">
+    <main className="w-dvw pt-20 pb-5 px-5 flex justify-start items-start gap-10  bg-background md:h-screen md:px-5">
       <Sidebar />
-      <Contents data={data} />
+      <Contents products={data} />
     </main>
   );
 };

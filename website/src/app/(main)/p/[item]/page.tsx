@@ -60,16 +60,16 @@ const Page = async ({ params }: { params: { item: string } }) => {
     <main className="w-screen h-fit pt-20 pb-5 px-5 flex flex-col justify-start items-start gap-3 overflow-hidden bg-background md:h-screen md:px-10">
       <div className="flex justify-center items-center gap-2">
         <Link
-          className="text-text-text text-base font-medium font-poppins leading-normal"
+          className="text-text-text text-base font-medium  leading-normal"
           href="/"
         >
           Home
         </Link>
-        <span className="text-text-text text-xs font-medium font-poppins leading-normal">
+        <span className="text-text-text text-xs font-medium  leading-normal">
           /
         </span>
         <Link
-          className="text-text-text text-base font-medium font-poppins leading-normal"
+          className="text-text-text text-base font-medium  leading-normal"
           href="/"
         >
           Dresses

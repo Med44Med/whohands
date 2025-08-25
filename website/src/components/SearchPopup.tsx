@@ -58,13 +58,13 @@ const SearchPopup = ({ showSearchBanner, setShowSearchBanner }: {}) => {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           onKeyDown={(e) => handleEnterKey(e)}
-          className="w-full p-3 px-5 mt-3 rounded-2xl border outline-none bg-surface shadow text-base text-text font-poppins font-medium"
+          className="w-full p-3 px-5 mt-3 rounded-2xl border outline-none bg-surface shadow text-base text-text  font-medium"
           type="text"
           placeholder="Search..."
           autoFocus //check it later
         />
         {error && (
-          <p className="w-full px-3 text-start text-base text-red-500 font-poppins">
+          <p className="w-full px-3 text-start text-base text-red-500 ">
             {error}
           </p>
         )}
@@ -80,14 +80,14 @@ const SearchPopup = ({ showSearchBanner, setShowSearchBanner }: {}) => {
                     key={index}
                     className="flex gap-3 items-center rounded-4xl p-1 px-3 border"
                   >
-                    <p className="text-base text-text font-poppins capitalize">
+                    <p className="text-base text-text  capitalize">
                       {item}
                     </p>
                     <IoMdClose className="cursor-pointer"/>
                   </div>
                 ))}
               </div>
-              <p className="text-base text-primary font-poppins underline self-end">
+              <p className="text-base text-primary  underline self-end">
                 Clear All
               </p>
             </div>
@@ -97,18 +97,18 @@ const SearchPopup = ({ showSearchBanner, setShowSearchBanner }: {}) => {
               </p>
               <div className="flex justify-start items-center gap-3 flex-wrap">
                 <div className="flex gap-3 items-center rounded-4xl p-1 px-3 border">
-                  <p className="text-base text-text font-poppins">hello</p>
+                  <p className="text-base text-text ">hello</p>
                 </div>
                 <div className="flex gap-3 items-center rounded-4xl p-1 px-3 border">
-                  <p className="text-base text-text font-poppins">
+                  <p className="text-base text-text ">
                     hello world
                   </p>
                 </div>
                 <div className="flex gap-3 items-center rounded-4xl p-1 px-3 border">
-                  <p className="text-base text-text font-poppins">be kind</p>
+                  <p className="text-base text-text ">be kind</p>
                 </div>
                 <div className="flex gap-3 items-center rounded-4xl p-1 px-3 border">
-                  <p className="text-base text-text font-poppins">fork</p>
+                  <p className="text-base text-text ">fork</p>
                 </div>
               </div>
             </div>

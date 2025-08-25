@@ -34,7 +34,7 @@ const ItemDetails = ({ item }) => {
       <div className="h-fit overflow-y-auto w-full">
         <Link
           href={`/store/${item?.user_id}`}
-          className="font-poppins font-normal text-xs text-text hover:underline"
+          className=" font-normal text-xs text-text hover:underline"
         >
           {item?.user_id || "Alpha blondy Textile"}
         </Link>
@@ -42,11 +42,11 @@ const ItemDetails = ({ item }) => {
           {item?.title} of course alerady in the mood to add some Code
         </h1>
         <div className="flex justify-start items-center gap-1">
-          <p className="text-sm font-poppins font-normal">5.0</p>
+          <p className="text-sm  font-normal">5.0</p>
           <IoIosStar className="" />
-          <p className="text-xs text-text-secondary font-poppins font-normal cursor-pointer hover:underline">{`(495 reviews)`}</p>
+          <p className="text-xs text-text-secondary  font-normal cursor-pointer hover:underline">{`(495 reviews)`}</p>
         </div>
-        <p className="py-5 text-text text-wrap text-3xl font-normal font-poppins tracking-tight capitalize md:text-5xl">
+        <p className="py-5 text-text text-wrap text-3xl font-normal  tracking-tight capitalize md:text-5xl">
           63 200,00 DA
         </p>
         {item?.models.map((model) => (
@@ -98,7 +98,7 @@ const ItemDetails = ({ item }) => {
           <div className="w-full flex justify-start">
             <p
               onClick={() => setShowText("details")}
-              className={`px-4 border-b-2 font-poppins  cursor-pointer  duration-300 hover:text-text ${
+              className={`px-4 border-b-2   cursor-pointer  duration-300 hover:text-text ${
                 showText === "details" ? "text-text" : "text-text-secondary "
               }`}
             >
@@ -106,7 +106,7 @@ const ItemDetails = ({ item }) => {
             </p>
             <p
               onClick={() => setShowText("specs")}
-              className={`px-4 border-b-2 font-poppins font-medium cursor-pointer  duration-300 hover:text-text ${
+              className={`px-4 border-b-2  font-medium cursor-pointer  duration-300 hover:text-text ${
                 showText === "specs" ? "text-text" : "text-text-secondary"
               }`}
             >
@@ -114,7 +114,7 @@ const ItemDetails = ({ item }) => {
             </p>
             <p
               onClick={() => setShowText("return")}
-              className={`px-4 border-b-2 font-poppins font-medium cursor-pointer  duration-300 hover:text-text ${
+              className={`px-4 border-b-2  font-medium cursor-pointer  duration-300 hover:text-text ${
                 showText === "return" ? "text-text" : "text-text-secondary"
               }`}
             >
@@ -123,14 +123,14 @@ const ItemDetails = ({ item }) => {
           </div>
           <div className="w-full min-h-56 py-3">
             <p
-              className={`text-text-secondary text-xs font-poppins text-justify ${
+              className={`text-text-secondary text-xs  text-justify ${
                 showText === "details" ? "block" : "hidden"
               }`}
             >
               {item?.description}
             </p>
             <p
-              className={`text-text-secondary text-xs font-poppins text-justify ${
+              className={`text-text-secondary text-xs  text-justify ${
                 showText === "specs" ? "block" : "hidden"
               }`}
             >
@@ -139,7 +139,7 @@ const ItemDetails = ({ item }) => {
               nam necessitatibus rem nisi? Consequatur, possimus quasi?
             </p>
             <p
-              className={`text-text-secondary text-xs font-poppins text-justify ${
+              className={`text-text-secondary text-xs  text-justify ${
                 showText === "return" ? "block" : "hidden"
               }`}
             >
@@ -157,7 +157,7 @@ const ItemDetails = ({ item }) => {
         <button className="border border-primary p-3 px-5 rounded text-primary text-xl cursor-pointer">
           <FaRegHeart />
         </button>
-        <button onClick={()=>handleSubmit()} className="bg-primary w-full py-3  rounded text-white font-medium font-poppins hover:bg-primary-hover transition duration-300 cursor-pointer">
+        <button onClick={()=>handleSubmit()} className="bg-primary w-full py-3  rounded text-white font-medium  hover:bg-primary-hover transition duration-300 cursor-pointer">
           Buy
         </button>
       </div>

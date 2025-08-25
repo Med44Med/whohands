@@ -11,7 +11,7 @@ const Notfound = async () => {
         This Page in not available
       </p>
       <div className="mt-5 flex justify-center items-center gap-5 ">
-        <Link href="/" replace className='bg-primary hover:bg-primary-hover p-3 px-10 text-base font-poppins font-medium text-white rounded transition-colors duration-300'>
+        <Link href="/" replace className='bg-primary hover:bg-primary-hover p-3 px-10 text-base  font-medium text-white rounded transition-colors duration-300'>
           Homepage
         </Link>
       </div>

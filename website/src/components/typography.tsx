@@ -5,7 +5,7 @@ const Text = ({ size, children, className, muted }) => {
   const handleSize = (size) => {
     switch (size) {
       case "small":
-        return "text-sm";
+        return "text-xs";
       case "normal":
         return "text-base";
       case "large":
@@ -19,7 +19,7 @@ const Text = ({ size, children, className, muted }) => {
   return (
     <p
       className={clsx(
-        "text-text font-poppins font-normal tracking-normal leading-normal",
+        "text-text font-normal tracking-normal leading-normal",
         handleSize(size),
         muted ? "text-text-muted" : "text-text",
         className
@@ -34,9 +34,9 @@ const Title = ({ children, size, className }) => {
   const handleSize = (size) => {
     switch (size) {
       case "big":
-        return "text-5xl";
+        return "text-5xl leading-12";
       case "small":
-        return "text-2xl";
+        return "text-2xl leading-6";
       default:
         break;
     }
@@ -45,7 +45,7 @@ const Title = ({ children, size, className }) => {
   return (
     <h1
       className={clsx(
-        "text-text font-playfair font-bold tracking-tight leading-11 capitalize",
+        "text-text !font-playfair font-bold tracking-tight  capitalize ",
         handleSize(size),
         className
       )}

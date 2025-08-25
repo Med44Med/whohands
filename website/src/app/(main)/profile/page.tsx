@@ -1,5 +1,10 @@
 import React from "react";
+
+import { FaEdit } from "react-icons/fa";
+
 import { createClient } from "../../../supabase/server";
+import Avatar from './_components/Avatar';
+import CredentialsForm from './_components/CredentialsForm';
 
 const Page = async () => {
   const supabase = await createClient();
@@ -14,11 +19,14 @@ const Page = async () => {
   if (error) {
     console.log(error);
   }
-  const profile = data[0]
+  const profile = data[0];
+  console.log(profile);
+
   return (
-    <main className="w-screen h-fit pt-20 pb-5 px-5 flex flex-col justify-start items-start gap-3 overflow-hidden bg-background md:h-screen md:px-10">
-        <picture><img src={profile.avatar_url} alt="" className="size-72 rounded-full" /></picture>
-        <p>{profile.email}</p>
+    <main className="w-screen h-fit pt-20 pb-5 px-5 flex flex-col justify-start items-center gap-10 overflow-hidden bg-background md:h-screen md:px-10">
+      <Avatar data={profile.avatar_url}/>
+      <CredentialsForm data={profile}/>
+      
     </main>
   );
 };

@@ -27,8 +27,10 @@
   --color-gradient-hover: var(--gradient-hover);
 
 
-  --font-poppins: var(--font-poppins);
+  --: var(--);
   --font-playfair: var(--font-playfair);
+  --font-outfit: var(--font-outfit);
+  --font-cairo: var(--font-cairo);
 }
 
 html[theme='dark'] {
@@ -37,14 +39,21 @@ html[theme='dark'] {
   --surface-hover: hsl(0, 0, 10);
   --text: hsl(0, 0, 95);
   --text-muted: hsl(0, 0, 60);
-  --border:hsl(0,0,30);
-  --gradient : linear-gradient(0deg, var(--background) 95% ,var(--surface-hover)) ;
-  --gradient-hover : linear-gradient(0deg, var(--background),var(--surface-hover)) ;
+  --border: hsl(0, 0, 30);
+  --gradient: linear-gradient(0deg, var(--background) 95%, var(--surface-hover));
+  --gradient-hover: linear-gradient(0deg, var(--background), var(--surface-hover));
 }
+
+
 
 * {
   box-sizing: border-box;
+  font-family: var(--font-outfit);
 }
+
+/* [lang='ar'] * {
+  font-family: var(--font-cairo);
+} */
 
 body {
   background: var(--background);

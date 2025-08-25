@@ -61,7 +61,7 @@ const ArtistItems = ({ items }) => {
         } gap-3`}
       >
         {items.length === 0 ? (
-          <p className="w-full text-center py-3 font-poppins font-light text-base text-text">
+          <p className="w-full text-center py-3  font-light text-base text-text">
             there is no itemes.
           </p>
         ) : (
@@ -86,16 +86,16 @@ const ArtistItems = ({ items }) => {
                 </p>
                 <div className="flex justify-start items-center gap-1">
                   <IoIosStar className="text-white text-xs" />
-                  <p className="text-white text-sm font-poppins font-bold">
+                  <p className="text-white text-sm  font-bold">
                     5.0
                   </p>
                 </div>
-                <p className="mt-1 font-poppins font-light text-xs text-white tracking-tight line-clamp-2 text-ellipsis">
+                <p className="mt-1  font-light text-xs text-white tracking-tight line-clamp-2 text-ellipsis">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
                   et, expedita fuga perferendis at libero doloremque dolorum
                   praesentium repellat animi.
                 </p>
-                <p className="w-full mt-auto py-3 font-poppins font-bold text-base text-white tracking-tighter text-end">
+                <p className="w-full mt-auto py-3  font-bold text-base text-white tracking-tighter text-end">
                   3 000,00 DA
                 </p>
               </div>

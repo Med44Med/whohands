@@ -42,7 +42,7 @@ const Todo = () => {
             key={index}
             className="w-11/12 rounded-xl bg-surface shadow p-3  flex flex-col justify-start items-start gap-3"
           >
-            <h1 className="text-text text-xl font-medium font-poppins capitalize">
+            <h1 className="text-text text-xl font-medium  capitalize">
               {todo.name} :
             </h1>
             <div className="w-full flex flex-col justify-start items-start gap-1">
@@ -56,14 +56,14 @@ const Todo = () => {
                     checked={item.value}
                     onChange={(e) => handleCheck(e, todo.name, item.name)}
                   />
-                  <label className="text-text text-base font-poppins capitalize">
+                  <label className="text-text text-base  capitalize">
                     {item.name}
                   </label>
                 </div>
               ))}
               <div className="group mt-1 cursor-pointer w-full flex justify-start items-center gap-2">
-                <FaPlus className="text-text-secondary text-base font-poppins capitalize group-hover:text-primary" />
-                <p className="text-text-secondary text-base font-poppins capitalize group-hover:text-primary">add a todo</p>
+                <FaPlus className="text-text-secondary text-base  capitalize group-hover:text-primary" />
+                <p className="text-text-secondary text-base  capitalize group-hover:text-primary">add a todo</p>
               </div>
             </div>
           </div>

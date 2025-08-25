@@ -10,7 +10,7 @@ const Button = ({ title, onClick, className, icon }) => {
         className
       )}
     >
-      <p className="text-white text-base font-poppins font-normal capitalize not-last:pl-2">
+      <p className="text-white text-base  font-normal capitalize not-last:pl-2">
         {title}
       </p>
       {icon}

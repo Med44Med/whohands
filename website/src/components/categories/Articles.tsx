@@ -24,11 +24,11 @@ const Articles = ({ data }: { data: itemType[] }) => {
     </div>
   ) : (
     <div className="w-full min-h-96 flex flex-col justify-center items-center gap-3">
-      <p className="text-xl font-poppins font-light text-text">
+      <p className="text-xl  font-light text-text">
         there is no items
       </p>
       <Link
-        className="bg-primary p-5 px-10 rounded text-base font-poppins font-medium text-white"
+        className="bg-primary p-5 px-10 rounded text-base  font-medium text-white"
         href="/categories"
       >
         Clear Filters

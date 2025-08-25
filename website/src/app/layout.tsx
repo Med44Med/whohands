@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
-import { Poppins, Playfair } from "next/font/google";
+import { Playfair, Outfit, Cairo } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 
 import "./globals.css";
 import clsx from "clsx";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
 const playfair = Playfair({
   variable: "--font-playfair",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+const cairo = Cairo({
+  variable: "--font-cairo",
+  subsets: ["arabic"],
 });
 
 export const metadata: Metadata = {
@@ -29,12 +34,15 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={clsx(poppins.variable, playfair.variable, "antialiased scroll-smooth w-svw touch-none")}
+        className={clsx(
+          playfair.variable,
+          outfit.variable,
+          cairo.variable,
+          "antialiased scroll-smooth w-svw touch-none"
+        )}
       >
         <NextIntlClientProvider>
-          <div className="relative overflow-x-hidden w-full">
-            {children}
-          </div>
+          <div className="relative overflow-x-hidden w-full">{children}</div>
         </NextIntlClientProvider>
       </body>
     </html>

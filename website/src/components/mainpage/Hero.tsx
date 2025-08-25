@@ -16,7 +16,7 @@ const Hero = () => {
         <h1 className="text-white text-5xl font-black font-playfair leading-tight tracking-tight ">
           Discover Unique Handmade Creations
         </h1>
-        <h2 className="text-white text-sm font-normal leading-normal font-poppins">
+        <h2 className="text-white text-sm font-normal leading-normal ">
           Explore a curated collection of handcrafted items from talented
           artisans.
         </h2>
@@ -25,7 +25,7 @@ const Hero = () => {
         href="login"
         className="bg-primary p-2 px-10 rounded flex justify-center items-center gap-2 hover:bg-primary-hover"
       >
-        <p className="text-surface text-xl font-medium font-poppins uppercase shadow ">
+        <p className="text-surface text-xl font-medium  uppercase shadow ">
           Shop
         </p>
       </Link>

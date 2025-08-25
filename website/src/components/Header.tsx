@@ -67,7 +67,7 @@ const Header = ({ user }) => {
 
         <h2 className="text-text text-3xl md:text-5xl font-black font-playfair tracking-tighter select-none">
           Who
-          <span className="text-primary text-2xl md:text-4xl font-black font-poppins  tracking-tighter">
+          <span className="text-primary text-2xl md:text-4xl font-black   tracking-tighter">
             Hands.
           </span>
         </h2>
@@ -75,7 +75,7 @@ const Header = ({ user }) => {
       <nav className="flex-1 h-full px-5 hidden md:flex items-center justify-end gap-10">
         <div className="group h-full">
           <Link
-            className="px-1 h-full flex justify-center items-center text-gray-700 text-base transition-all font-medium hover:text-text font-poppins leading-normal border-b-2 border-background hover:border-text"
+            className="px-1 h-full flex justify-center items-center text-gray-700 text-base transition-all font-medium hover:text-text  leading-normal border-b-2 border-background hover:border-text"
             href="categories"
           >
             Categories
@@ -88,7 +88,7 @@ const Header = ({ user }) => {
               >
                 <Link
                   href={`/p?category=${category.slug}`}
-                  className="font-poppins font-bold text-xl text-text text-start w-full"
+                  className=" font-bold text-xl text-text text-start w-full"
                 >
                   {category.name}
                 </Link>
@@ -98,7 +98,7 @@ const Header = ({ user }) => {
                       <li key={i}>
                         <Link
                           href={`/p?sub_category=${subc.slug}`}
-                          className="font-poppins font-medium text-xs text-wrap text-text-muted duration-300 hover:text-primary hover:underline"
+                          className=" font-medium text-xs text-wrap text-text-muted duration-300 hover:text-primary hover:underline"
                         >
                           {subc.name}
                         </Link>
@@ -111,13 +111,13 @@ const Header = ({ user }) => {
           </div>
         </div>
         <Link
-          className="px-1 h-full flex justify-center items-center text-gray-700 text-base transition-all font-medium hover:text-text font-poppins leading-normal border-b-2 border-background hover:border-text"
+          className="px-1 h-full flex justify-center items-center text-gray-700 text-base transition-all font-medium hover:text-text  leading-normal border-b-2 border-background hover:border-text"
           href="artists"
         >
           Artists
         </Link>
         <Link
-          className="px-1 h-full flex justify-center items-center text-gray-700 text-base transition-all font-medium hover:text-text font-poppins leading-normal border-b-2 border-background hover:border-text"
+          className="px-1 h-full flex justify-center items-center text-gray-700 text-base transition-all font-medium hover:text-text  leading-normal border-b-2 border-background hover:border-text"
           href="/blogs"
         >
           Blogs

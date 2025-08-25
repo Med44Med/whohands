@@ -58,7 +58,7 @@ export default async function LoginPage({ searchParams }) {
           className="min-w-72 min-h-10 m-3 bg-primary hover:bg-primary-hover duration-300 cursor-pointer px-5 py-2 rounded shadow flex justify-center items-center gap-3 "
         >
           <FaGoogle className="text-white text-lg" />
-          <p className="text-white font-poppins font-medium capitalize">
+          <p className="text-white  font-medium capitalize">
             continue with google
           </p>
         </button>

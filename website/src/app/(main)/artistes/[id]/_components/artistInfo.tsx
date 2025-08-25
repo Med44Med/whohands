@@ -64,11 +64,11 @@ const ArtistInfo = ({ artist }) => {
       </h1>
       <Link
         href={`/items?categories=${artist?.category}`}
-        className="font-poppins font-normal text-xs text-white tracking-tighter capitalize hover:underline"
+        className=" font-normal text-xs text-white tracking-tighter capitalize hover:underline"
       >
         {artist?.category}
       </Link>
-      <p className="mt-3 text-white text-xs font-poppins text-center line-clamp-5 text-ellipsis">
+      <p className="mt-3 text-white text-xs  text-center line-clamp-5 text-ellipsis">
         {artist?.descreption}
       </p>
     </div>

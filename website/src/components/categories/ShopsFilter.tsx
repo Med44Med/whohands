@@ -51,11 +51,11 @@ const ShopsFilter = () => {
           }}
           className="flex justify-center items-center gap-5 cursor-pointer duration-300 hover:bg-text-secondary-hover"
         >
-          <p className="text-sm font-poppins font-medium select-none">
+          <p className="text-sm  font-medium select-none">
             Category
           </p>
           <IoIosArrowDown
-            className={`text-lg font-poppins font-medium duration-300 ${
+            className={`text-lg  font-medium duration-300 ${
               showCategory && "rotate-180"
             }`}
           />
@@ -75,11 +75,11 @@ const ShopsFilter = () => {
           }}
           className="flex justify-center items-center gap-5 cursor-pointer duration-300 hover:bg-text-secondary-hover"
         >
-          <p className="text-sm font-poppins font-medium select-none">
+          <p className="text-sm  font-medium select-none">
             Location
           </p>
           <IoIosArrowDown
-            className={`text-lg font-poppins font-medium duration-300 ${
+            className={`text-lg  font-medium duration-300 ${
               showLocation && "rotate-180"
             }`}
           />
@@ -88,7 +88,7 @@ const ShopsFilter = () => {
           <div className="absolute top-full left-0 w-96 h-72 bg-surface mt-2 rounded shadow-lg p-3 flex flex-col gap-1">
             <div className='w-full flex flex-col justify-start items-start gap-1'>
               <p>Wilaya :</p>
-                <select className="w-full py-2 font-poppins">
+                <select className="w-full py-2 ">
                   <option value="ain defla">Ain Defla</option>
                   <option value="ain defla">Alger</option>
                   <option value="ain defla">Setif</option>
@@ -97,7 +97,7 @@ const ShopsFilter = () => {
             </div>
             <div className='w-full flex flex-col justify-start items-start gap-1'>
               <p>Commune :</p>
-                <select className="w-full py-2 font-poppins">
+                <select className="w-full py-2 ">
                   <option value="ain defla">Ain Defla</option>
                   <option value="ain defla">Alger</option>
                   <option value="ain defla">Setif</option>
