@@ -1,6 +1,6 @@
 import { login, signup, signInWithGoogle } from "./actions";
 import { FaGoogle } from "react-icons/fa";
-import SignInEmailForm from './_components/SignInEmailForm';
+import SignInEmailForm from "./_components/SignInEmailForm";
 
 export const metadata: Metadata = {
   title: "WhoHands | Login",
@@ -10,21 +10,23 @@ export const metadata: Metadata = {
 export default async function LoginPage({ searchParams }) {
   const { redirectTo } = await searchParams;
   console.log(redirectTo);
-  
+
   return (
     <main className="w-full px-10 flex justify-start items-center gap-5 py-5 pt-20 flex-col ">
-      <SignInEmailForm redirectTo={redirectTo}/>  
-      <form>
-        <button
-          formAction={signInWithGoogle}
-          className="min-w-72 min-h-10 m-3 bg-primary hover:bg-primary-hover duration-300 cursor-pointer px-5 py-2 rounded shadow flex justify-center items-center gap-3 "
-        >
-          <FaGoogle className="text-white text-lg" />
-          <p className="text-white  font-medium capitalize">
-            continue with google
-          </p>
-        </button>
-      </form>
+      <div className="bg-surface shadow rounded p-10 w-full md:w-1/2 flex flex-col justify-center items-center gap-1">
+        <SignInEmailForm redirectTo={redirectTo} />
+        <form className="mt-3     w-full  flex flex-col justify-center items-center gap-1">
+          <button
+            formAction={signInWithGoogle}
+            className="min-w-72 w-full min-h-10 m-3 bg-primary hover:bg-primary-hover duration-300 cursor-pointer px-5 py-2 rounded shadow flex justify-center items-center gap-3 "
+          >
+            <FaGoogle className="text-white text-lg" />
+            <p className="text-white  font-medium capitalize">
+              continue with google
+            </p>
+          </button>
+        </form>
+      </div>
     </main>
   );
 }

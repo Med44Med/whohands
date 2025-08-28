@@ -3,7 +3,7 @@ import { z } from "zod";
 import { createClient } from "@/supabase/server";
 import { revalidatePath } from "next/cache";
 
-const SignUpSchema = z.object({
+const SignInSchema = z.object({
   email: z.email("This is not a valid email."),
   password: z
     .string()
@@ -15,7 +15,7 @@ export async function SignInAction(prevState, formData) {
     email: formData.get("email") as string,
     password: formData.get("password") as string,
   };
-  const checkedData = SignUpSchema.safeParse(data);
+  const checkedData = SignInSchema.safeParse(data);
 
   if (!checkedData.success) {
     return { error: checkedData.error.flatten().fieldErrors };

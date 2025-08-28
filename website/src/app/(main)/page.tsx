@@ -7,8 +7,8 @@ import Hero from "../../components/mainpage/Hero";
 
 export default async function Home() {
 
-  const cookie = (await cookies()).get('main_config')?.value
-  console.log(JSON.parse(cookie));
+  // const cookie = (await cookies()).get('main_config')?.value
+  // console.log(JSON.parse(cookie));
   
 
   

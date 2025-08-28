@@ -19,7 +19,7 @@ const SignInEmailForm = ({ redirectTo = "/" }: { redirectTo: string }) => {
   return (
     <form
       action={formAction}
-      className="mt-3 bg-surface shadow rounded p-10 w-2/3 flex flex-col justify-center items-center gap-1"
+      className="mt-3     w-full  flex flex-col justify-center items-center gap-1"
     >
       <InputField
         className="w-full mb-2"
@@ -36,27 +36,23 @@ const SignInEmailForm = ({ redirectTo = "/" }: { redirectTo: string }) => {
         error={state?.error?.password}
       />
       <Button
-        title={isPending ? "loading" : "Log in"}
+        title={isPending ? "loading..." : "Log in"}
         type="submit"
         className="w-full py-3 mt-3"
       />
-
-      {/* <button
-        className="w-full bg-primary p-2 text-xl text-surface font-semibold rounded cursor-pointer hover:bg-primary-hover"
-        type="submit"
-      >
-        {isPending ? "loading" : "Log in"}
-      </button> */}
 
       {state?.error?.auth && (
         <Text size="normal" className="w-full !text-red-500">
           {state.error.auth}
         </Text>
       )}
-      <Text size="normal" className="w-full py-1" muted>
-        you don&#39;t have ann account 
-        <Link href="/register" className="pl-1 !text-text font-bold duration-300 hover:!text-primary">
-           Create an Account
+      <Text size="normal" className="w-full py-3" muted>
+        you don&#39;t have ann account
+        <Link
+          href={redirectTo === '/' ? "/register" :`/register?redirectTo=${redirectTo}`}
+          className="pl-1 !text-text font-bold duration-300 hover:!text-primary"
+        >
+          Create an Account
         </Link>
       </Text>
     </form>
