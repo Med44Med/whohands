@@ -5,6 +5,8 @@ import { getLocale } from "next-intl/server";
 
 import "./globals.css";
 import clsx from "clsx";
+import LayoutConfig from '../components/LayoutConfig';
+import Alert from '../components/Alert';
 
 const playfair = Playfair({
   variable: "--font-playfair",
@@ -43,6 +45,7 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider>
           <div className="relative overflow-x-hidden w-full">{children}</div>
+          <LayoutConfig />
         </NextIntlClientProvider>
       </body>
     </html>

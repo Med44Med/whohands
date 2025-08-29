@@ -1,5 +1,4 @@
-import { cookies } from "next/headers";
-import { headers } from 'next/headers'
+
 
 import { getTranslations } from "next-intl/server";
 

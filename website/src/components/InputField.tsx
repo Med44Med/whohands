@@ -8,7 +8,7 @@ const InputField = ({
   label,
   type,
   value,
-  onChange,
+  onChange=()=>{return},
   className,
   error,
   required = false,

@@ -20,11 +20,10 @@ const Page = async () => {
     console.log(error);
   }
   const profile = data[0];
-  console.log(profile);
 
   return (
     <main className="w-screen h-fit pt-20 pb-5 px-5 flex flex-col justify-start items-center gap-10 overflow-hidden bg-background md:h-screen md:px-10">
-      <Avatar data={profile.avatar_url}/>
+      <Avatar profile={profile}/>
       <CredentialsForm data={profile}/>
       
     </main>

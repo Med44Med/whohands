@@ -6,7 +6,6 @@ import InputField from "../../../../components/InputField";
 const CredentialsForm = ({ data }) => {
   const [credentials, setCredentials] = useState(data);
 
-  console.log(credentials);
 
   return (
     <div className="bg-surface w-full rounded-xl p-5 flex flex-col justify-start items-center gap-3">
