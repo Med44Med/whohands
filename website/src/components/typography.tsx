@@ -45,7 +45,7 @@ const Title = ({ children, size, className }) => {
   return (
     <h1
       className={clsx(
-        "text-text !font-playfair font-bold tracking-tight  capitalize ",
+        "text-text !font-playfair font-black tracking-tight  capitalize ",
         handleSize(size),
         className
       )}

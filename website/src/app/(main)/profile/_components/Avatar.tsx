@@ -5,7 +5,8 @@ import { useState, useRef, useEffect } from "react";
 import { createClient } from "@/supabase/client";
 import { fromBlob, blobToURL } from "image-resize-compress";
 import { useRouter } from "next/navigation";
-import { Text } from '@/components/typography';
+import { Text, Title } from "@/components/typography";
+import Button from "@/components/Button";
 
 const Avatar = ({ profile }) => {
   const router = useRouter();
@@ -60,14 +61,17 @@ const Avatar = ({ profile }) => {
         setUpload_error(updateProfile.error.message);
         return;
       } else {
-         window.location.reload()
+        window.location.reload();
       }
     };
     handleUpload();
   }, [avatar]);
 
   return (
-    <div className="relative size-40 md:size-[320px] rounded-full bg-surface shadow flex flex-col items-center justify-center ">
+    <div className="w-full bg-surface rounded-xl p-5 pb-10 flex flex-col justify-center items-center gap-3">
+      <Title size="big" className="w-full">
+        Profile Picture
+      </Title>
       <picture className="size-36 md:size-72 rounded-full bg-center bg-cover">
         <source
           srcSet={profile.avatar_url}
@@ -80,12 +84,18 @@ const Avatar = ({ profile }) => {
           className="size-36 md:size-72 rounded-full bg-center bg-cover"
         />
       </picture>
-      <button
+      {upload_error && (
+        <Text size="normal" className="!text-red-400 !font-medium">
+          {upload_error}
+        </Text>
+      )}
+      <Button
+        title="update"
+        icon={
+          <FaEdit className="text-white text-lg md:text-lg duration-300 group-hover:text-primary" />
+        }
         onClick={() => inputRef.current.click()}
-        className="group absolute bottom-0 right-4 md:right-12 size-8 md:size-12 rounded-full bg-surface shadow cursor-pointer flex justify-center items-center"
-      >
-        <FaEdit className="text-text-muted text-lg md:text-2xl duration-300 group-hover:text-primary" />
-      </button>
+      />
       <input
         type="file"
         className="hidden"
@@ -94,8 +104,7 @@ const Avatar = ({ profile }) => {
         onChange={(e) => setAvatar(e.target.files[0])}
         accept="image/*"
       />
-      {upload_error && <Text size='normal'>{upload_error}</Text>}
-    </div>
+          </div>
   );
 };
 

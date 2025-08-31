@@ -7,7 +7,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 const InputField = ({
   label,
   type,
-  value,
+  value='',
   onChange=()=>{return},
   className,
   error,

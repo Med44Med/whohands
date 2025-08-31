@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '@/components/Footer';
 
 const AuthLayout = ({children}: Readonly<{ children: React.ReactNode }>) => {
   return (
@@ -9,6 +10,7 @@ const AuthLayout = ({children}: Readonly<{ children: React.ReactNode }>) => {
       </picture>
     </header>
     {children}
+    <Footer />
     </>
   )
 }

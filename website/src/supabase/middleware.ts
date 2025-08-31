@@ -32,9 +32,9 @@ export async function updateSession(request: NextRequest) {
   );
 
   // refreshing the auth token
-  const { error } = await supabase.auth.getUser();
-
-  if (error && protectedRoutes.includes(request.nextUrl.pathname)) {
+  const {data:{session}} = await supabase.auth.getSession();
+  
+  if (session === null && protectedRoutes.includes(request.nextUrl.pathname)) {
     return NextResponse.redirect(
       new URL(`/login?redirectTo=${request.nextUrl.pathname}`, request.url)
     );

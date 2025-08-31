@@ -22,10 +22,13 @@ const Page = async ({
     console.log(error);
   }
 
+  const products = await fetch("https://fakestoreapi.in/api/products").then(res => res.json())
+  
+
   return (
     <main className="w-dvw pt-20 pb-5 px-5 flex justify-start items-start gap-10  bg-background md:h-screen md:px-5">
       <Sidebar />
-      <Contents products={data} />
+      <Contents products={products.products} />
     </main>
   );
 };

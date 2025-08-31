@@ -16,13 +16,16 @@ import HeaderResponsiveSidebar from "./HeaderResponsiveSidebar";
 import HeaderSearchPopup from "./HeaderSearchPopup";
 import SearchPopup from "./SearchPopup";
 
-const Header = ({ user }) => {
+const Header = () => {
+
   const [hideHeader, setHideHeader] = useState<boolean>(false);
   const [showSearchBanner, setShowSearchBanner] = useState(false);
   const [showResponsiveSidear, setShowResponsiveSidear] = useState(false);
 
   const currentScrollRef = useRef<number>(0);
 
+  
+  const avatar = null
   
   useEffect(() => {
     const handlescroll = () => {
@@ -138,13 +141,13 @@ const Header = ({ user }) => {
             <IoCartOutline className="text-text text-xl" />
           </Link>
         </div>
-        {user ? (
+        {avatar ? (
           <Link href="profile">
             <picture>
               <img
-                src={user.user_metadata.avatar_url}
+                src={avatar}
                 alt="profile"
-                className="size-8 rounded-full bg-surface border-2 border-primary"
+                className="size-10 rounded-full bg-surface shadow-2xl"
               />
             </picture>
           </Link>

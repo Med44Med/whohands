@@ -6,6 +6,7 @@ import InputField from "../../../../components/InputField";
 import Button from "@/components/Button";
 import { Text } from "@/components/typography";
 import Link from "next/link";
+import { redirect } from 'next/navigation';
 
 const SignInEmailForm = ({ redirectTo = "/" }: { redirectTo: string }) => {
   const [state, formAction, isPending] = useActionState(SignInAction);

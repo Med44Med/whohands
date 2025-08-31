@@ -7,7 +7,7 @@ const Button = ({ title, onClick, className, icon, type = "button" }) => {
       type={type}
       onClick={onClick}
       className={clsx(
-        "w-fit shadow rounded px-5 py-2 bg-primary cursor-pointer duration-300 hover:bg-primary-hover flex justify-center items-center gap-1 last:text-white last:text-2xl",
+        "w-fit shadow-xl rounded px-5 py-2 bg-primary cursor-pointer duration-300 hover:bg-primary-hover flex justify-center items-center gap-3 last:text-white last:text-2xl",
         className
       )}
     >
