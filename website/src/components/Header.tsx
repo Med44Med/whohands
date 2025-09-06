@@ -52,11 +52,7 @@ const Header = () => {
 
   return (
     <header
-      className={clsx(
-        "fixed z-50 top-0 left-0 w-full h-14  transition-all duration-300 bg-background  px-3 flex items-center justify-start gap-2 whitespace-nowrap shadow md:px-5",
-        hideHeader && "-translate-y-full"
-      )}
-    >
+      className="fixed z-50 top-0 left-0 w-full h-14  transition-all duration-300 bg-background  px-3 flex items-center justify-start gap-2 whitespace-nowrap shadow md:px-5"    >
       <Link className="flex items-center gap-1" href="/">
         <div className="h-7 w-7 md:w-8 md:h-8 flex justify-center items-center">
           <picture>
@@ -100,7 +96,7 @@ const Header = () => {
                     {category?.subCategories.map((subc, i) => (
                       <li key={i}>
                         <Link
-                          href={`/p?sub_category=${subc.slug}`}
+                          href={`/p?category=${category.slug}&sub_category=${subc.slug}`}
                           className=" font-medium text-xs text-wrap text-text-muted duration-300 hover:text-primary hover:underline"
                         >
                           {subc.name}

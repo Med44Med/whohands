@@ -43,7 +43,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="w-1/6 h-full rounded-xl p-3 shadow bg-surface overflow-y-auto flex flex-col justify-start items-start gap-3">
+    <div className="absolute left-0 top-0 w-76 h-screen p-3 overflow-y-auto flex flex-col justify-start items-start gap-3">
       <Text size="normal">Sort</Text>
       <select onChange={(e) => setSort(e.target.value)}>
         <option value="Newest">Newest</option>

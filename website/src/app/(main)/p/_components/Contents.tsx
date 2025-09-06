@@ -6,7 +6,7 @@ import { Title, Text } from "@/components/typography";
 
 const Contents = ({ products }) => {
   return (
-    <div className="flex-1 rounded-xl grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 ">
+    <div className="h-full ml-72 px-10 rounded-xl grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 ">
       {products.map((p, index) => (
         <div key={index} className="w-full flex flex-col">
           <div className="w-full bg-white h-96 flex justify-center items-center rounded-xl overflow-hidden">
