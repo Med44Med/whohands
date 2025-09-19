@@ -13,6 +13,7 @@ const InputField = ({
   error,
   required = false,
 }) => {
+  
   const [inputType, setInputType] = useState(type);
   return (
     <div className={className}>
@@ -23,7 +24,7 @@ const InputField = ({
           name={label}
           className="block rounded px-2.5 pb-2.5 pt-5 w-full text-sm text-text bg-surface outline-0 appearance-none   peer"
           placeholder=" "
-          value={value}
+          // value={value}
           onChange={(e) => onChange(e)}
           required={required}
         />

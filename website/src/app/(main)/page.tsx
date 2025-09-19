@@ -14,7 +14,7 @@ export default async function Home() {
   const t = await getTranslations("HomePage");
 
   return (
-    <main className="w-full px-10 flex justify-start items-center py-5 pt-20 flex-col ">
+    <main className="w-full px-10 flex justify-start items-center py-5 pt-32 flex-col ">
       <Hero />
       <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
         Featured Items

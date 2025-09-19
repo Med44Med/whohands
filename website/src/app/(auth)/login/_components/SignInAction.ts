@@ -15,6 +15,8 @@ export async function SignInAction(prevState, formData) {
     email: formData.get("email") as string,
     password: formData.get("password") as string,
   };
+  console.log(data);
+  
   const checkedData = SignInSchema.safeParse(data);
 
   if (!checkedData.success) {

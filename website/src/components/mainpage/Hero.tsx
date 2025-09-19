@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="relative w-full rounded-2xl overflow-hidden h-[calc(100vh-100px)] flex-col gap-6 flex items-center justify-center">
+    <div className="relative w-full rounded-2xl overflow-hidden h-[calc(100vh-140px)] flex-col gap-6 flex items-center justify-center">
       <picture>
         <img
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1TYtu-LNAAGlQXprEs9xZmux_uOXArfYxxpKkCSbsxF2SK3kX-DtiqDceHtx-jmf-Dhpakw6PA6xyySO_NRGFJY5_xcsywnD0cdK3fQQoB9TE5KsLUC7NaNGE7AcMLGKCuF-92nXet-yIJTwDMDh1hkQ-XlEIwTLHPH8KloV68b_FAoYXk2A0lK48nacjSmo1OyUfIxPdRo9KfrY01WTWz7p36b3-JZhhubn6wHfHybh_VTKfq5udUOZVwJdokrM4RsXFA6PE5x4"

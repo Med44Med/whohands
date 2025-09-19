@@ -6,12 +6,15 @@ import { createClient } from "../../supabase/client";
 import { useState, useEffect } from "react";
 import { Text, Title } from "@/components/typography";
 import Skeleton from "@/components/Skeleton";
-import Button from "../../components/Button";
 import LangSwitcher from "../../components/LangSwitcher";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { fromBlob, blobToURL } from "image-resize-compress";
+import Link from 'next/link';
+import Button from '@/components/Button';
 
 const Page = () => {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const router = useRouter();
   const locale = useLocale();
   const t = useTranslations("HomePage");
@@ -27,25 +30,17 @@ const Page = () => {
 
   useEffect(() => {
     const handleBlob = async () => {
-      
       const quality = 80; // For webp and jpeg formats
       const width = 80; // Original width
       const height = "auto"; // Original height
       const format = "webp"; // Output format
 
-      const resizedBlob = await fromBlob(
-        blob,
-        quality,
-        width,
-        height,
-        format
-      );
+      const resizedBlob = await fromBlob(blob, quality, width, height, format);
       const url = await blobToURL(resizedBlob);
-      setNewdBlob(url)
-
+      setNewdBlob(url);
     };
     if (!blob) {
-        return;
+      return;
     }
     handleBlob(blob);
   }, [blob]);
@@ -70,13 +65,14 @@ const Page = () => {
     router.push("/");
   };
 
+
+
+  
+
   return (
     <>
       <div className="min-h-screen bg-background w-full flex flex-col justify-center items-center gap-3">
-        <input
-          type="file"
-          onChange={(e) => setBlob(e.target.files[0])}
-        />
+        <input type="file" onChange={(e) => setBlob(e.target.files[0])} />
         <picture>
           <img src={newBlob} alt="resized" />
         </picture>

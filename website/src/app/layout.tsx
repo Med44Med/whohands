@@ -5,8 +5,8 @@ import { getLocale } from "next-intl/server";
 
 import "./globals.css";
 import clsx from "clsx";
-import LayoutConfig from '../components/LayoutConfig';
-import Alert from '../components/Alert';
+import LayoutConfig from "../components/LayoutConfig";
+import Alert from "../components/Alert";
 
 const playfair = Playfair({
   variable: "--font-playfair",
@@ -35,6 +35,12 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=optional"
+          rel="stylesheet"
+        />
+      </head>
       <body
         className={clsx(
           playfair.variable,

@@ -5,69 +5,45 @@ import { useCallback, useState, useEffect } from "react";
 import Link from "next/link";
 import { Text } from "@/components/typography";
 import Button from "@/components/Button";
+import { IoIosArrowDown } from "react-icons/io";
+import { categories } from "../../../../../public/categories";
 
-const Sidebar = () => {
+import { FaRegSquare, FaRegCheckSquare } from "react-icons/fa";
+import { ImBin } from "react-icons/im";
+
+import clsx from "clsx";
+import { communes, wilayas } from "../../../../../public/location";
+import {
+  CategoryMenu,
+  PriceMenu,
+  LocationMenu,
+} from "../_components/SideBarItems";
+
+const Sidebar = ({ min = 1000, max = 8000 }: { min: number; max: number }) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const [sort, setSort] = useState("Newest");
-  const [filter, setFilter] = useState({});
+  const [filter, setFilter] = useState({
+    category: "all",
+    subcategory: "all",
+    min_price: min,
+    max_price: max,
+  });
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams.toString());
+
     for (const key of params.keys()) {
       setFilter((perv) => ({ ...perv, [key]: params.get(key) }));
     }
-  }, []);
-
-  const handleQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
-
-      router.replace(pathname + "?" + params.toString());
-    },
-    [searchParams]
-  );
-
-  useEffect(() => {
-    handleQueryString("Sort", sort);
-  }, [sort]);
-
-  const jsob = { name: "hello", username: "also hello" };
-  const stringy = "brand_name:opel;author:mohammed";
-  const stringo = stringy.split(";");
-  for (const item in stringo) {
-    console.log(item);
-  }
+  }, [searchParams]);
 
   return (
-    <div className="absolute left-0 top-0 w-76 h-screen p-3 overflow-y-auto flex flex-col justify-start items-start gap-3">
-      <Text size="normal">Sort</Text>
-      <select onChange={(e) => setSort(e.target.value)}>
-        <option value="Newest">Newest</option>
-        <option value="Popular">Popular</option>
-        <option value="ASC">Asending Price</option>
-        <option value="DSC">Decending Price</option>
-      </select>
-      <Text size="normal">Filter</Text>
-
-      <div className="mt-auto w-full flex justify-center items-center gap-1">
-        <button
-          className="px-3 text-primary cursor-pointer hover:text-primary-hover"
-          onClick={() => router.replace(`${pathname}?${newparams}`)}
-        >
-          Reset
-        </button>
-        <Button
-          className="flex-1"
-          title="Filter"
-          onClick={() => router.replace(`${pathname}?${newparams}`)}
-        >
-          Filter
-        </Button>
-      </div>
+    <div className="h-fit rounded-xl shadow w-1/5 bg-surface p-5 overflow-y-auto flex flex-col justify-start items-start gap-3">
+      <CategoryMenu filter={filter} setFilter={setFilter} />
+      <PriceMenu filter={filter} setFilter={setFilter} min={min} max={max} />
+      <LocationMenu filter={filter} setFilter={setFilter} />
     </div>
   );
 };

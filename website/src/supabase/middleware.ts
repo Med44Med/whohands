@@ -2,6 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 const protectedRoutes = ["/profile"];
+const loggedForbidden = ["/login"];
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
@@ -32,12 +33,21 @@ export async function updateSession(request: NextRequest) {
   );
 
   // refreshing the auth token
-  const {data:{session}} = await supabase.auth.getSession();
-  
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
   if (session === null && protectedRoutes.includes(request.nextUrl.pathname)) {
     return NextResponse.redirect(
       new URL(`/login?redirectTo=${request.nextUrl.pathname}`, request.url)
     );
+  } else if (
+    session !== null &&
+    loggedForbidden.includes(request.nextUrl.pathname)
+  ) {
+    return NextResponse.redirect(
+      new URL(`/profile`, request.url)
+    )
   } else {
     return supabaseResponse;
   }

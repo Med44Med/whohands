@@ -1,12 +1,12 @@
 export const categories = [
   {
     name: "Kitchen",
-    slug: "Kitchen",
+    slug: "kitchen",
     subCategories: [
-      { name: "Weedings Chiefs", slug: "Foods" },
-      { name: "Tartes", slug: "Tartes" },
-      { name: "Gateaux à la Commande", slug: "Foods" },
-      { name: "Salée à la Commande", slug: "Foods" },
+      { name: "Weedings Chiefs", slug: "weedings-chiefs" },
+      { name: "Tartes", slug: "tartes" },
+      { name: "Gateaux à la Commande", slug: "gateaux-a-la-commande" },
+      { name: "Salée à la Commande", slug: "salee-a-la-commande" },
     ],
   },
   {
