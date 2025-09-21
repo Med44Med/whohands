@@ -1,15 +1,17 @@
 "use client";
 
 import { useActionState, useEffect } from "react";
-import { SignInAction } from "./SignInAction.ts";
+import { SignInAction } from "./SignInAction";
 import InputField from "../../../../components/InputField";
 import Button from "@/components/Button";
 import { Text } from "@/components/typography";
 import Link from "next/link";
 import { redirect } from 'next/navigation';
 
+const initialState = { message: '' };
+
 const SignInEmailForm = ({ redirectTo = "/" }: { redirectTo: string }) => {
-  const [state, formAction, isPending] = useActionState(SignInAction);
+  const [state, formAction, isPending] = useActionState(SignInAction,initialState);
 
   useEffect(() => {
     if (state?.success) {

@@ -1,5 +1,3 @@
-import { login, signup, signInWithGoogle } from "./actions";
-import { FaGoogle } from "react-icons/fa";
 import SignInEmailForm from "./_components/SignInEmailForm";
 
 export const metadata: Metadata = {

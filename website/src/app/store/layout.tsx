@@ -20,24 +20,9 @@ const layout = async ({ children }) => {
 
   const res = await fetch(
     `http://127.0.0.1:3000/api/set-store-id-cookie?value=${store_id}`,
-    { method: "GET", credentials: "include" }
+    { credentials: "include" }
   );
   console.log(res);
-
-  //   const { data, error } = await supabase
-  //     .from("stores")
-  //     .select("*")
-  //     .eq("owner", id);
-
-  //   if (error) {
-  //     console.log(error);
-  //   }
-
-  //   const store_id = data[0].id;
-
-  //   const res = await fetch(`http://192.168.1.44:3000/api/set-store-id-cookie?value=${store_id}`
-  //   );
-  //   console.log(await res.json());
 
   return (
     <>
@@ -60,7 +45,7 @@ const layout = async ({ children }) => {
           </Link>
         </nav>
       </aside>
-      <main className="w-full pl-[236px] pr-3 py-5 min-h-screen flex flex-col">
+      <main className="w-full pl-[264px] pr-10 py-5 min-h-screen flex flex-col">
         {children}
       </main>
     </>

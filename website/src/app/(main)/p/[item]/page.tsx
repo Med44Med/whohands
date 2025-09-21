@@ -7,7 +7,7 @@ import Link from "next/link";
 import Slider from "../../../../components/itemPage/Slider";
 import ItemDetails from "../../../../components/itemPage/ItemDetails";
 
-const getItem = cache(async (item: string,from:string) => {
+const getItem = cache(async (item: string, from: string) => {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from(from)
@@ -45,15 +45,15 @@ type Props = {
 //   // };
 // }
 
-const Page = async ({ params }: { params: { item: string } }) => {
+const Page = async ({ params }: { params: Promise<{ item: string }> }) => {
   const { item } = await params;
-  const { data, error } = await getItem(item,"articles");
+  const { data, error } = await getItem(item, "articles");
   if (error) {
     console.log(error);
   }
 
   console.log(data);
-  
+
   const article = data[0];
 
   return (

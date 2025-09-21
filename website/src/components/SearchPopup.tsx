@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 
 import { IoMdClose } from "react-icons/io";
 
-const SearchPopup = ({ showSearchBanner, setShowSearchBanner }: {}) => {
+const SearchPopup = ({ showSearchBanner, setShowSearchBanner }) => {
   const searchInputRef = useRef(null);
   const [searchText, setSearchText] = useState("");
   const [error, setError] = useState("");
