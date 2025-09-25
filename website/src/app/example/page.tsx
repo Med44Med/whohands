@@ -11,6 +11,7 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { fromBlob, blobToURL } from "image-resize-compress";
 import Link from 'next/link';
 import Button from '@/components/Button';
+import ProgressBySteps from '../../components/ProgressBySteps';
 
 const Page = () => {
   const pathname = usePathname();
@@ -71,6 +72,9 @@ const Page = () => {
 
   return (
     <>
+      <div className="min-h-screen bg-background w-full flex flex-col justify-center items-center gap-3">
+        <ProgressBySteps steps={4} progress={1} />
+      </div>
       <div className="min-h-screen bg-background w-full flex flex-col justify-center items-center gap-3">
         <input type="file" onChange={(e) => setBlob(e.target.files[0])} />
         <picture>
