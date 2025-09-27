@@ -11,39 +11,19 @@ interface Product {
   sub_category: string;
 }
 
-const General = ({ store, nextPage,setId }) => {
-  const supabase = createClient();
-
-  const [product, setProduct] = useState<Product>({
-    store,
-    title: "",
-    descreption: '',
-    category: "",
-    sub_category: "",
-  });
-
-  const handleGeneral = async (e) => {
+const General = ({ product, setProduct, nextPage }) => {
+  const handleGeneral = (e) => {
     e.preventDefault();
     if (!product.title || !product.category || !product.sub_category) {
       alert("please fill all fields");
       return;
     }
-    const { data, error } = await supabase
-      .from("products")
-      .insert([product])
-      .select();
-    if (error) {
-      console.log(error);
-      return;
-    }
-
-    setId(data[0]?.id)
-
-    await nextPage();
+    nextPage();
   };
+
   return (
-    <form className="overflow-y-auto flex-1 px-0 flex flex-col gap-1 md:px-20">
-      <label htmlFor="">Category*</label>
+    <form className="overflow-y-auto w-1/4 px-0 flex flex-col gap-1 md:px-20">
+      <label htmlFor="">Category* :</label>
       <select
         onChange={(e) =>
           setProduct((perv) => ({ ...perv, category: e.target.value }))
@@ -57,7 +37,7 @@ const General = ({ store, nextPage,setId }) => {
           </option>
         ))}
       </select>
-      <label htmlFor="">Title :</label>
+      <label htmlFor="">Sub Category* :</label>
       <select
         disabled={!product.category}
         className="w-full px-3 py-2 mb-5 rounded outline-0 border border-gray-300 duration-150 focus:border-primary disabled:text-gray-300"
@@ -72,7 +52,7 @@ const General = ({ store, nextPage,setId }) => {
             <option key={sub.slug}>{sub.name}</option>
           ))}
       </select>
-      <label htmlFor="">Title :</label>
+      <label htmlFor="">Title* :</label>
       <input
         type="text"
         placeholder="Product name"
@@ -94,7 +74,7 @@ const General = ({ store, nextPage,setId }) => {
       />
       <button
         onClick={(e) => handleGeneral(e)}
-        className="bg-primary w-fit ml-auto px-10 py-1 rounded text-white cursor-pointer duration-150 hover:bg-primary-hover"
+        className="bg-primary w-fit ml-auto mt-auto px-10 py-1 rounded text-white cursor-pointer duration-150 hover:bg-primary-hover"
       >
         Next
       </button>

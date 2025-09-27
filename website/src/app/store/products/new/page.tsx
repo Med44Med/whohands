@@ -5,7 +5,6 @@ import { cookies } from "next/headers";
 const page = async () => {
   const cookieStore = await cookies();
   const storeID = await cookieStore.get("STORE_ID");
-  console.log(storeID);
 
   return <Contents store={storeID?.value} />;
 };
