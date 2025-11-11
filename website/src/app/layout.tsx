@@ -6,7 +6,6 @@ import { getLocale } from "next-intl/server";
 import "./globals.css";
 import clsx from "clsx";
 import LayoutConfig from "../components/LayoutConfig";
-import Alert from "../components/Alert";
 
 const playfair = Playfair({
   variable: "--font-playfair",

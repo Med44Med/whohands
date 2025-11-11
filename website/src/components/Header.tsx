@@ -6,25 +6,54 @@ import clsx from "clsx";
 
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
-import { IoIosArrowDown, IoMdSearch } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
+import {
+  IoSearch,
+  IoHeartOutline,
+  IoPersonCircleOutline,
+} from "react-icons/io5";
 
-import { FaRegHeart, FaSearch } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 import { IoGridOutline } from "react-icons/io5";
 
 import { categories } from "../../public/categories";
 import logo from "../../public/icon.png";
 import HeaderResponsiveSidebar from "./HeaderResponsiveSidebar";
 import SearchPopup from "./SearchPopup";
-import { Title, Text } from "@/components/typography";
+import { Text } from "@/components/typography";
+import { createClient } from "@/supabase/client";
+import { useRouter } from "next/navigation";
 
 const Header = ({ data }) => {
+  const router = useRouter();
+  const supabase = createClient();
+
   const [hideHeader, setHideHeader] = useState<boolean>(false);
   const [showSearchBanner, setShowSearchBanner] = useState(false);
   const [showResponsiveSidear, setShowResponsiveSidear] = useState(false);
 
+  const [profile, setProfile] = useState(null);
   const currentScrollRef = useRef<number>(0);
 
-  const avatar = null;
+  useEffect(() => {
+    const getUser = async () => {
+      const { data, error } = await supabase.auth.getUser();
+
+      if (!data || error) {
+        return;
+      }
+
+      const { id }: { id: string } = data?.user;
+
+      const { data: user } = await supabase
+        .from("profiles")
+        .select("*")
+        .eq("id", id);
+
+      setProfile(user[0]);
+    };
+    getUser();
+  }, [supabase]);
 
   useEffect(() => {
     const handlescroll = () => {
@@ -49,14 +78,22 @@ const Header = ({ data }) => {
     };
   }, []);
 
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.log(error);
+    }
+    setprofile(null);
+  };
+
   return (
     <>
       <header
         className={clsx(
-          "fixed z-50 top-0 left-0 w-full transition-all duration-300 bg-background flex flex-col items-start justify-start whitespace-nowrap shadow ",
+          "fixed z-50 top-0 left-0 w-full transition-all duration-300 bg-background flex flex-col items-start justify-start whitespace-nowrap shadow "
           // hideHeader ? " -translate-y-full" : "translate-y-0"
         )}
-        >
+      >
         <div className="w-full h-14 flex justify-between items-center px-3 md:px-5">
           <Link className="flex items-center gap-1" href="/">
             <div className="h-7 w-7 md:w-8 md:h-8 flex justify-center items-center">
@@ -75,35 +112,54 @@ const Header = ({ data }) => {
             </h2>
           </Link>
           <div className="flex justify-end items-center h-full ml-auto">
-            <div className="hidden md:flex ">
-              <button
-                onClick={() => setShowSearchBanner(true)}
-                className="flex transition-all duration-300 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-text-secondary hover:bg-text-secondary-hover text-text gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 md:px-2.5"
-              >
-                <span className="material-icons-outlined">search</span>
+            <div className="hidden md:flex items-center gap-5 ">
+              <button onClick={() => setShowSearchBanner(true)}>
+                <IoSearch className="text-text text-2xl" />
               </button>
-              <Link
-                href="/favorites"
-                className="flex transition-all duration-300 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-text-secondary hover:bg-text-secondary-hover text-text gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 md:px-2.5"
-              >
-                <FaRegHeart className="text-text text-xl" />
+              <Link href="/favorites">
+                <FaRegHeart className="text-text text-2xl" />
               </Link>
-              {avatar ? (
-                <Link href="profile">
-                  <picture>
-                    <img
-                      src={avatar}
-                      alt="profile"
-                      className="size-10 rounded-full bg-surface shadow-2xl"
-                    />
-                  </picture>
-                </Link>
+              {profile ? (
+                <>
+                  <div className="px-1 relative group">
+                    <picture>
+                      <img
+                        src={profile.avatar_url}
+                        alt="profile"
+                        className="size-8 rounded-full bg-surface shadow-2xl border-2 border-white"
+                      />
+                    </picture>
+                    <div className="group-hover:flex absolute right-0 top-[100%] w-72 bg-white rounded shadow hidden flex-col justify-start items-center">
+                      <Link
+                        href="profile"
+                        className="w-full p-3 group/profile flex flex-col justify-center items-center gap-1 border-b border-gray-300"
+                      >
+                        <picture>
+                          <img
+                            src={profile.avatar_url}
+                            alt="profile"
+                            className="size-28 rounded-full bg-surface shadow-2xl border-2 border-white"
+                          />
+                        </picture>
+                        <p className="group-hover/profile:text-primary group-hover/profile:underline">
+                          {profile.username ? profile.username : profile.email} (Edit)
+                        </p>
+                      </Link>
+                      <Link href='/notifications' className='w-full text-center p-3 hover:text-primary hover:bg-gray-100 duration-150'>Notifications</Link>
+                      {profile?.role === "user" ? (
+                        <Link href="/createstore" className='w-full text-center p-3 hover:text-primary hover:bg-gray-100 duration-150'>Create a Store</Link>
+                      ) : (
+                        <Link href="/store" className='w-full text-center p-3 hover:text-primary hover:bg-gray-100 duration-150'>Store</Link>
+                      )}
+                      <button onClick={handleLogout} className='w-full text-center p-3 hover:text-primary hover:bg-gray-100 duration-150 cursor-pointer'>Log out</button>
+                    </div>
+                  </div>
+
+                  
+                </>
               ) : (
-                <Link
-                  href="login"
-                  className="flex transition-all duration-300 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-text-secondary hover:bg-text-secondary-hover text-text gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 md:px-2.5"
-                >
-                  <MdOutlinePersonOutline className="text-text text-3xl" />
+                <Link href="login">
+                  <IoPersonCircleOutline className="text-text text-3xl" />
                 </Link>
               )}
             </div>
@@ -187,14 +243,20 @@ const Header = ({ data }) => {
           <span className="material-icons-outlined scale-125">search</span>
           <Text size="small">Search</Text>
         </button>
-        <Link href='/favorites' className="flex flex-col justify-center items-center gap-1">
-          <FaRegHeart className="text-2xl"/>
+        <Link
+          href="/favorites"
+          className="flex flex-col justify-center items-center gap-1"
+        >
+          <FaRegHeart className="text-2xl" />
           <Text size="small">Liked</Text>
         </Link>
-        <div className="flex flex-col justify-center items-center gap-1">
+        <Link
+          href="profile"
+          className="flex flex-col justify-center items-center gap-1"
+        >
           <MdOutlinePersonOutline className="text-2xl" />
           <Text size="small">Account</Text>
-        </div>
+        </Link>
       </div>
       {showSearchBanner && (
         <SearchPopup

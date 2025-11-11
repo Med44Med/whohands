@@ -9,10 +9,10 @@ import Skeleton from "@/components/Skeleton";
 import LangSwitcher from "../../components/LangSwitcher";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { fromBlob, blobToURL } from "image-resize-compress";
-import Link from 'next/link';
-import Button from '@/components/Button';
-import ProgressBySteps from '../../components/ProgressBySteps';
-
+import Link from "next/link";
+import Button from "@/components/Button";
+import ProgressBySteps from "../../components/ProgressBySteps";
+import NavLink from "@/components/NavLink";
 const Page = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -66,48 +66,19 @@ const Page = () => {
     router.push("/");
   };
 
-
-
-  
-
   return (
     <>
-      <div className="min-h-screen bg-background w-full flex flex-col justify-center items-center gap-3">
-        <ProgressBySteps steps={4} progress={1} />
-      </div>
-      <div className="min-h-screen bg-background w-full flex flex-col justify-center items-center gap-3">
-        <input type="file" onChange={(e) => setBlob(e.target.files[0])} />
-        <picture>
-          <img src={newBlob} alt="resized" />
-        </picture>
-      </div>
-
-      <div className="bg-green-100 min-h-screen w-full flex flex-col justify-center items-center gap-3">
-        <LangSwitcher lang="ar" />
-        <LangSwitcher lang="fr" />
-        <LangSwitcher lang="en" />
-        <Title size="big" className="w-2/3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
-          exercitationem!
-        </Title>
-        <Text size="normal" className="w-1/2">
-          abcd ipsum dolor sit amet, consectetur adipisicing elit. Fuga iste at
-          dolores neque assumenda maiores aut iure illum ad consequatur tenetur
-          doloribus, veniam hic, laboriosam cum dolor, officia molestiae. Illo!
-        </Text>
-        <Text size="big" className="text-4xl">
-          عربي
-        </Text>
-      </div>
-
-      <div className="min-h-screen w-full flex flex-col justify-center items-center gap-3 bg-background">
-        <button className="bg-gradient hover:bg-gradient-hover border-white p-50 rounded-xl cursor-pointer">
-          <p className="text-white">dzhands</p>
-        </button>
-      </div>
-      <div>{t("title")}</div>
-      <p>{profile?.email}</p>
       <button onClick={() => handleLogout()}>Log out</button>
+      <br />
+      <div className="flex-1 bg-red-200 h-96 flex flex-col justify-start items-center p-3">
+        <NavLink
+          href="/example"
+          className="bg-primary p-3 px-10 rounded text-white"
+          activeClassName='bg-red-500'
+        >
+          Example
+        </NavLink>
+      </div>
     </>
   );
 };

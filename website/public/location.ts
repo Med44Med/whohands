@@ -146,7 +146,7 @@ export const wilayas = [
   {
     id: "19",
     code: "19",
-    name: "Se9tif",
+    name: "Setif",
     ar_name: "سطيف",
     longitude: "36.1905173",
     latitude: "5.4202134",
@@ -154,7 +154,7 @@ export const wilayas = [
   {
     id: "20",
     code: "20",
-    name: "Saefda",
+    name: "Saida",
     ar_name: "سعيدة",
     longitude: "34.841945",
     latitude: "0.1483583",

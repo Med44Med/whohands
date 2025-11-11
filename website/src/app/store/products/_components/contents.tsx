@@ -5,7 +5,8 @@ import { Title, Text } from "@/components/typography";
 import Button from "@/components/Button";
 import { FaSort, FaExternalLinkAlt } from "react-icons/fa";
 import Price from "../../../../components/Price";
-import Link from 'next/link';
+import Link from "next/link";
+import ProductsHeader from "./ProductsHeader";
 
 const Contents = ({ data }) => {
   const [products, setProducts] = useState(data);
@@ -15,22 +16,7 @@ const Contents = ({ data }) => {
 
   return (
     <>
-      <header className="w-full pt-10 py-3 flex justify-between items-center">
-        <div className="flex justify-center items-end gap-3">
-          <Title size="big">Products</Title>
-          <span className="w-fit text-nowrap pb-1">
-            ({products.length} products)
-          </span>
-        </div>
-        <div className="w-full flex justify-end items-center gap-3">
-          <input
-            type="text"
-            className="outline-0 border border-text-muted px-3 py-1 rounded"
-            placeholder="Search..."
-          />
-          <Button title="Add a Product" />
-        </div>
-      </header>
+      <ProductsHeader />
       <div className="bg-surface w-full flex-1 rounded-3xl overflow-hidden shadow-xl flex flex-col justify-start items-start gap-5">
         <table className="w-full">
           <thead className="bg-primary ">
@@ -119,7 +105,7 @@ const Contents = ({ data }) => {
             <tr>
               <td colSpan="5" className="py-10 text-center ">
                 <div className="w-full flex justify-center items-center ">
-                  <Link href="/store/products/new" >Add a Product</Link>
+                  <Link href="/store/products/new">Add a Product</Link>
                 </div>
               </td>
             </tr>

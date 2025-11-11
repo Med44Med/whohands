@@ -35,9 +35,13 @@ export async function SignUpAction(prevState, formData) {
     return { error: { checks: 'please accept our terms' } };
   }
   
+  const authCred = {email:data.email,password:data.password}
+  console.log(authCred);
   
   const supabase = await createClient();
-  const { error } = await supabase.auth.signUp(data);
+  const { error } = await supabase.auth.signUp(authCred);
+  console.log(error);
+  
   if (error) {
     return { error: { auth: error.message } };
   }

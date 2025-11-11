@@ -1,8 +1,8 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-const protectedRoutes = ["/profile","/store"];
-const loggedForbidden = ["/login"];
+const protectedRoutes = ["/profile", "/store"];
+const loggedForbidden = ["/login","/register"];
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
@@ -36,19 +36,22 @@ export async function updateSession(request: NextRequest) {
   const {
     data: { session },
   } = await supabase.auth.getSession();
+  const path = request.nextUrl.pathname;
 
-  if (session === null && protectedRoutes.includes(request.nextUrl.pathname)) {
+  const isProtected = protectedRoutes.some((route) => path.startsWith(route));
+  const isLoggedForbidden = loggedForbidden.some((route) =>
+    path.startsWith(route)
+  );
+
+  if (!session && isProtected && path !== "/login") {
     return NextResponse.redirect(
-      new URL(`/login?redirectTo=${request.nextUrl.pathname}`, request.url)
+      new URL(`/login?redirectTo=${path}`, request.url)
     );
-  } else if (
-    session !== null &&
-    loggedForbidden.includes(request.nextUrl.pathname)
-  ) {
-    return NextResponse.redirect(
-      new URL(`/profile`, request.url)
-    )
-  } else {
-    return supabaseResponse;
   }
+
+  if (session && isLoggedForbidden) {
+    return NextResponse.redirect(new URL(`/profile`, request.url));
+  }
+
+  return supabaseResponse;
 }
